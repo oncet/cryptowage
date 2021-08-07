@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import {
   Box,
@@ -10,8 +10,8 @@ import {
   List,
   ListIcon,
   ListItem,
-  Slide,
   useColorModeValue,
+  useOutsideClick,
 } from "@chakra-ui/react";
 import {
   FaBars,
@@ -26,8 +26,15 @@ import logo from "../logo.svg";
 import { useState } from "react";
 
 export const Header = () => {
+  const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const background = useColorModeValue("gray.200", "gray.900");
+  // const shadow = useColorModeValue("md", "");
+
+  useOutsideClick({
+    ref,
+    handler: () => setIsOpen(false),
+  });
 
   const routes = [
     { to: "/", text: "Home", icon: FaHome },
@@ -38,17 +45,18 @@ export const Header = () => {
 
   return (
     <Box
-      transition="background 0.25s"
-      background={isOpen ? background : ""}
+      transition="background 0.1s"
+      background={background}
       px="4"
       py="2"
+      position="fixed"
+      width="100%"
     >
-      <Box maxW="container.lg" margin="auto">
+      <Box maxW="container.lg" margin="auto" ref={ref}>
         <chakra.header
           display="flex"
           alignItems="center"
           justifyContent="space-between"
-          // border="1px solid"
         >
           <Image src={logo} alt="Logo" />
           <ColorModeSwitcher />
@@ -65,20 +73,20 @@ export const Header = () => {
         <Collapse
           in={isOpen}
           animateOpacity
-          // transition={{ enter: { duration: 5 } }}
+          // transition={{ enter: { duration: 5 }, exit: { duration: 5 } }}
         >
           <Box pt={2}>
             <List>
               {routes.map(({ to, text, icon }) => (
-                <ListItem>
+                <ListItem key={to}>
                   <Link
                     to={to}
                     as={RouterLink}
                     display="flex"
                     alignItems="center"
-                    // border="1px solid"
                     px={1}
                     py={2}
+                    onClick={() => setIsOpen(false)}
                   >
                     <ListIcon as={icon} />
                     {text}
