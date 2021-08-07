@@ -58,7 +58,9 @@ export const Header = () => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Image src={logo} alt="Logo" />
+          <Link to="/" as={RouterLink}>
+            <Image src={logo} alt="Logo" />
+          </Link>
           <ColorModeSwitcher />
           <IconButton
             size="md"
