@@ -5,12 +5,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Home } from "./pages/Home";
 import { Contracts } from "./pages/Contracts";
+import { Footer } from "./components/Footer";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
     <Router>
       <Header />
-      <Container maxW="container.lg" pt="4">
+      <Container maxW="container.lg" pt="4" pb="24">
         <chakra.main mt="14">
           <Switch>
             <Route exact path="/">
@@ -22,6 +23,7 @@ export const App = () => (
           </Switch>
         </chakra.main>
       </Container>
+      <Footer />
     </Router>
   </ChakraProvider>
 );
