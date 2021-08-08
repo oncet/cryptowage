@@ -19,6 +19,9 @@ import {
   FaFileContract,
   FaSitemap,
   FaUserCircle,
+  FaQuestionCircle,
+  FaMoneyBillWave,
+  FaCog,
 } from "react-icons/fa";
 
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
@@ -37,10 +40,28 @@ export const Header = () => {
   });
 
   const routes = [
-    { to: "/", text: "Home", icon: FaHome },
-    { to: "/profile", text: "Profile", icon: FaUserCircle },
-    { to: "/contracts", text: "Contracts", icon: FaFileContract },
-    { to: "/distributions", text: "Distributions", icon: FaSitemap },
+    { id: "home", to: "/", text: "Home", icon: FaHome },
+    { id: "profile", to: "/profile", text: "Profile", icon: FaUserCircle },
+    { id: "settings", to: "/settings", text: "Settings", icon: FaCog },
+    {
+      id: "contracts",
+      to: "/contracts",
+      text: "Contracts",
+      icon: FaFileContract,
+    },
+    {
+      id: "distributions",
+      to: "/distributions",
+      text: "Distributions",
+      icon: FaSitemap,
+    },
+    {
+      id: "payrolls",
+      to: "/payrolls",
+      text: "Payrolls",
+      icon: FaMoneyBillWave,
+    },
+    { id: "help", to: "/help", text: "Help", icon: FaQuestionCircle },
   ];
 
   return (
@@ -51,6 +72,7 @@ export const Header = () => {
       py="2"
       position="fixed"
       width="100%"
+      zIndex="sticky"
     >
       <Box maxW="container.lg" margin="auto" ref={ref}>
         <chakra.header
@@ -79,8 +101,8 @@ export const Header = () => {
         >
           <Box pt={2}>
             <List>
-              {routes.map(({ to, text, icon }) => (
-                <ListItem key={to}>
+              {routes.map(({ id, to, text, icon }) => (
+                <ListItem key={id}>
                   <Link
                     to={to}
                     as={RouterLink}
