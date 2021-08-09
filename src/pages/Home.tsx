@@ -5,6 +5,7 @@ import {
   Heading,
   Link,
   Stat,
+  StatGroup,
   StatHelpText,
   StatLabel,
   StatNumber,
@@ -17,7 +18,44 @@ export const Home = () => {
       <Heading as="h1" mb="4">
         Dashboard
       </Heading>
-      <Heading size="lg">Incoming payrolls</Heading>
+      <Heading size="lg">Current distributions</Heading>
+      <StatGroup>
+        <Stat
+          border="1px solid"
+          borderColor="purple.600"
+          borderRadius="md"
+          background="purple.900"
+          py="2"
+          px="4"
+          mt="4"
+          mr="2"
+        >
+          <StatLabel>95%</StatLabel>
+          <StatNumber>DAI</StatNumber>
+          <StatHelpText>Stable coin</StatHelpText>
+        </Stat>
+        <Stat
+          border="1px solid"
+          borderColor="purple.600"
+          borderRadius="md"
+          background="purple.900"
+          py="2"
+          px="4"
+          mt="4"
+        >
+          <StatLabel>5%</StatLabel>
+          <StatNumber>ETH</StatNumber>
+          <StatHelpText>Cryptocurrency</StatHelpText>
+        </Stat>
+      </StatGroup>
+      <Text mt="2" textAlign="right">
+        <Link to="/payrolls" as={RouterLink}>
+          Edit distributions &rarr;
+        </Link>
+      </Text>
+      <Heading size="lg" mt="4">
+        Incoming payrolls
+      </Heading>
       <Stat
         border="1px solid"
         borderColor="purple.600"
@@ -49,8 +87,8 @@ export const Home = () => {
         <StatHelpText>Feb 28</StatHelpText>
       </Stat>
       <Text mt="2" textAlign="right">
-        <Link to="/payrolls/incoming" as={RouterLink}>
-          View all incoming payrolls &rarr;
+        <Link to="/payrolls" as={RouterLink}>
+          View all payrolls &rarr;
         </Link>
       </Text>
       <Heading size="lg" mt="4">
@@ -72,6 +110,8 @@ export const Home = () => {
         <StatHelpText>Processed on Feb 28</StatHelpText>
       </Stat>
       <Stat
+        variant="default"
+        colorScheme="brand"
         border="1px solid"
         borderColor="purple.600"
         borderRadius="md"
@@ -87,8 +127,8 @@ export const Home = () => {
         <StatHelpText>Processed on Feb 28</StatHelpText>
       </Stat>
       <Text mt="2" textAlign="right">
-        <Link to="/payrolls/incoming" as={RouterLink}>
-          View all recently processed payrolls &rarr;
+        <Link to="/payrolls" as={RouterLink}>
+          View all payrolls &rarr;
         </Link>
       </Text>
     </>
