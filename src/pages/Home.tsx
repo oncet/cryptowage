@@ -49,7 +49,7 @@ export const Home = () => {
         </Stat>
       </StatGroup>
       <Text mt="2" textAlign="right">
-        <Link to="/payrolls" as={RouterLink}>
+        <Link to="/distributions" as={RouterLink}>
           Edit distributions &rarr;
         </Link>
       </Text>
