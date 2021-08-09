@@ -44,10 +44,10 @@ export const Header = () => {
     { id: "profile", to: "/profile", text: "Profile", icon: FaUserCircle },
     { id: "settings", to: "/settings", text: "Settings", icon: FaCog },
     {
-      id: "contracts",
-      to: "/contracts",
-      text: "Contracts",
-      icon: FaFileContract,
+      id: "payrolls",
+      to: "/payrolls",
+      text: "Payrolls",
+      icon: FaMoneyBillWave,
     },
     {
       id: "distributions",
@@ -56,10 +56,10 @@ export const Header = () => {
       icon: FaSitemap,
     },
     {
-      id: "payrolls",
-      to: "/payrolls",
-      text: "Payrolls",
-      icon: FaMoneyBillWave,
+      id: "contracts",
+      to: "/contracts",
+      text: "Contracts",
+      icon: FaFileContract,
     },
     { id: "help", to: "/help", text: "Help", icon: FaQuestionCircle },
   ];
