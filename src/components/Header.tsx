@@ -32,7 +32,6 @@ export const Header = () => {
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const background = useColorModeValue("gray.200", "gray.900");
-  // const shadow = useColorModeValue("md", "");
 
   useOutsideClick({
     ref,
@@ -94,11 +93,7 @@ export const Header = () => {
             onClick={() => setIsOpen(!isOpen)}
           />
         </chakra.header>
-        <Collapse
-          in={isOpen}
-          animateOpacity
-          // transition={{ enter: { duration: 5 }, exit: { duration: 5 } }}
-        >
+        <Collapse in={isOpen} animateOpacity>
           <Box pt={2}>
             <List>
               {routes.map(({ id, to, text, icon }) => (
