@@ -4,6 +4,7 @@ import {
   Badge,
   Heading,
   Link,
+  Stack,
   Stat,
   StatGroup,
   StatHelpText,
@@ -19,30 +20,13 @@ export const Home = () => {
         Dashboard
       </Heading>
       <Heading size="lg">Current distributions</Heading>
-      <StatGroup>
-        <Stat
-          border="1px solid"
-          borderColor="purple.600"
-          borderRadius="md"
-          background="purple.900"
-          py="2"
-          px="4"
-          mt="4"
-          mr="2"
-        >
+      <StatGroup as={Stack} direction="row" spacing="4" mt="4">
+        <Stat>
           <StatLabel>95%</StatLabel>
           <StatNumber>DAI</StatNumber>
           <StatHelpText>Stable coin</StatHelpText>
         </Stat>
-        <Stat
-          border="1px solid"
-          borderColor="purple.600"
-          borderRadius="md"
-          background="purple.900"
-          py="2"
-          px="4"
-          mt="4"
-        >
+        <Stat>
           <StatLabel>5%</StatLabel>
           <StatNumber>ETH</StatNumber>
           <StatHelpText>Cryptocurrency</StatHelpText>
@@ -56,36 +40,22 @@ export const Home = () => {
       <Heading size="lg" mt="4">
         Incoming payrolls
       </Heading>
-      <Stat
-        border="1px solid"
-        borderColor="purple.600"
-        borderRadius="md"
-        background="purple.900"
-        py="2"
-        px="4"
-        mt="4"
-      >
-        <StatLabel display="flex" justifyContent="space-between">
-          Sr. Pago <Badge colorScheme="yellow">processing</Badge>
-        </StatLabel>
-        <StatNumber>USD 3600</StatNumber>
-        <StatHelpText>Feb 28</StatHelpText>
-      </Stat>
-      <Stat
-        border="1px solid"
-        borderColor="purple.600"
-        borderRadius="md"
-        background="purple.900"
-        py="2"
-        px="4"
-        mt="4"
-      >
-        <StatLabel display="flex" justifyContent="space-between">
-          Sr. Pago <Badge>Pending</Badge>
-        </StatLabel>
-        <StatNumber>USD 3600</StatNumber>
-        <StatHelpText>Feb 28</StatHelpText>
-      </Stat>
+      <Stack mt="4" spacing="4">
+        <Stat>
+          <StatLabel display="flex" justifyContent="space-between">
+            Sr. Pago <Badge colorScheme="yellow">processing</Badge>
+          </StatLabel>
+          <StatNumber>USD 3600</StatNumber>
+          <StatHelpText>Feb 28</StatHelpText>
+        </Stat>
+        <Stat>
+          <StatLabel display="flex" justifyContent="space-between">
+            Sr. Pago <Badge>Pending</Badge>
+          </StatLabel>
+          <StatNumber>USD 3600</StatNumber>
+          <StatHelpText>Feb 28</StatHelpText>
+        </Stat>
+      </Stack>
       <Text mt="2" textAlign="right">
         <Link to="/payrolls" as={RouterLink}>
           View all payrolls &rarr;
@@ -94,38 +64,22 @@ export const Home = () => {
       <Heading size="lg" mt="4">
         Recenlty processed payrolls
       </Heading>
-      <Stat
-        border="1px solid"
-        borderColor="purple.600"
-        borderRadius="md"
-        background="purple.900"
-        py="2"
-        px="4"
-        mt="4"
-      >
-        <StatLabel display="flex" justifyContent="space-between">
-          Sr. Pago <Badge colorScheme="green">processed</Badge>
-        </StatLabel>
-        <StatNumber>USD 3600</StatNumber>
-        <StatHelpText>Processed on Feb 28</StatHelpText>
-      </Stat>
-      <Stat
-        variant="default"
-        colorScheme="brand"
-        border="1px solid"
-        borderColor="purple.600"
-        borderRadius="md"
-        background="purple.900"
-        py="2"
-        px="4"
-        mt="4"
-      >
-        <StatLabel display="flex" justifyContent="space-between">
-          Sr. Pago <Badge colorScheme="green">processed</Badge>
-        </StatLabel>
-        <StatNumber>USD 3600</StatNumber>
-        <StatHelpText>Processed on Feb 28</StatHelpText>
-      </Stat>
+      <Stack mt="4" spacing="4">
+        <Stat>
+          <StatLabel display="flex" justifyContent="space-between">
+            Sr. Pago <Badge colorScheme="green">processed</Badge>
+          </StatLabel>
+          <StatNumber>USD 3600</StatNumber>
+          <StatHelpText>Processed on Feb 28</StatHelpText>
+        </Stat>
+        <Stat>
+          <StatLabel display="flex" justifyContent="space-between">
+            Sr. Pago <Badge colorScheme="green">processed</Badge>
+          </StatLabel>
+          <StatNumber>USD 3600</StatNumber>
+          <StatHelpText>Processed on Feb 28</StatHelpText>
+        </Stat>
+      </Stack>
       <Text mt="2" textAlign="right">
         <Link to="/payrolls" as={RouterLink}>
           View all payrolls &rarr;
