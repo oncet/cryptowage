@@ -79,7 +79,7 @@ export const Header = () => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Link to="/" as={RouterLink}>
+          <Link to="/" as={RouterLink} onClick={() => setIsOpen(false)}>
             <Image src={logo} alt="Logo" />
           </Link>
           <ColorModeSwitcher />
