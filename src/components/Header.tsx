@@ -27,41 +27,20 @@ import {
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import logo from "../logo.svg";
 import { useState } from "react";
+import { HeaderLink } from "./HeaderLink";
 
 export const Header = () => {
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const background = useColorModeValue("gray.200", "gray.900");
+  const separatorColor = useColorModeValue("gray.300", "gray.700");
 
   useOutsideClick({
     ref,
     handler: () => setIsOpen(false),
   });
 
-  const routes = [
-    { id: "home", to: "/", text: "Home", icon: FaHome },
-    { id: "profile", to: "/profile", text: "Profile", icon: FaUserCircle },
-    { id: "settings", to: "/settings", text: "Settings", icon: FaCog },
-    {
-      id: "payrolls",
-      to: "/payrolls",
-      text: "Payrolls",
-      icon: FaMoneyBillWave,
-    },
-    {
-      id: "distributions",
-      to: "/distributions",
-      text: "Distributions",
-      icon: FaSitemap,
-    },
-    {
-      id: "contracts",
-      to: "/contracts",
-      text: "Contracts",
-      icon: FaFileContract,
-    },
-    { id: "help", to: "/help", text: "Help", icon: FaQuestionCircle },
-  ];
+  const onClick = () => setIsOpen(false);
 
   return (
     <Box
@@ -79,7 +58,7 @@ export const Header = () => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Link to="/" as={RouterLink} onClick={() => setIsOpen(false)}>
+          <Link to="/" as={RouterLink} onClick={onClick}>
             <Image src={logo} alt="Logo" />
           </Link>
           <ColorModeSwitcher />
@@ -96,22 +75,52 @@ export const Header = () => {
         <Collapse in={isOpen} animateOpacity>
           <Box pt={2}>
             <List>
-              {routes.map(({ id, to, text, icon }) => (
-                <ListItem key={id}>
-                  <Link
-                    to={to}
-                    as={RouterLink}
-                    display="flex"
-                    alignItems="center"
-                    px={1}
-                    py={2}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <ListIcon as={icon} />
-                    {text}
-                  </Link>
-                </ListItem>
-              ))}
+              <ListItem key="home">
+                <HeaderLink to="/" onClick={onClick}>
+                  <ListIcon as={FaHome} />
+                  Home
+                </HeaderLink>
+              </ListItem>
+              <ListItem key="profile">
+                <HeaderLink to="/profile" onClick={onClick}>
+                  <ListIcon as={FaUserCircle} />
+                  Profile
+                </HeaderLink>
+              </ListItem>
+              <ListItem key="settings">
+                <HeaderLink to="/settings" onClick={onClick}>
+                  <ListIcon as={FaCog} />
+                  Settings
+                </HeaderLink>
+              </ListItem>
+            </List>
+            <List borderTop="1px solid" borderColor={separatorColor}>
+              <ListItem key="payrolls">
+                <HeaderLink to="/payrolls" onClick={onClick}>
+                  <ListIcon as={FaMoneyBillWave} />
+                  Payrolls
+                </HeaderLink>
+              </ListItem>
+              <ListItem key="distributions">
+                <HeaderLink to="/distributions" onClick={onClick}>
+                  <ListIcon as={FaSitemap} />
+                  Distributions
+                </HeaderLink>
+              </ListItem>
+              <ListItem key="contracts">
+                <HeaderLink to="/contracts" onClick={onClick}>
+                  <ListIcon as={FaFileContract} />
+                  Contracts
+                </HeaderLink>
+              </ListItem>
+            </List>
+            <List borderTop="1px solid" borderColor={separatorColor}>
+              <ListItem key="help">
+                <HeaderLink to="/help" onClick={onClick}>
+                  <ListIcon as={FaQuestionCircle} />
+                  Help
+                </HeaderLink>
+              </ListItem>
             </List>
           </Box>
         </Collapse>
