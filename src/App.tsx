@@ -6,6 +6,7 @@ import {
   extendTheme,
   // theme,
 } from "@chakra-ui/react";
+import { mode } from "@chakra-ui/theme-tools";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Header } from "./components/Header";
@@ -16,16 +17,16 @@ import { Footer } from "./components/Footer";
 const theme = extendTheme({
   components: {
     Stat: {
-      baseStyle: {
+      baseStyle: (props) => ({
         container: {
-          background: "purple.900",
+          background: mode("gray.100", "purple.900")(props),
           border: "1px solid",
-          borderColor: "purple.600",
+          borderColor: mode("gray.300", "purple.600")(props),
           borderRadius: "md",
           px: "4",
           py: "2",
         },
-      },
+      }),
     },
   },
 });
