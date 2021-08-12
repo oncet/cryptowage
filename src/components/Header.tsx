@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import {
   Box,
@@ -26,7 +26,6 @@ import {
 
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import logo from "../logo.svg";
-import { useState } from "react";
 import { HeaderLink } from "./HeaderLink";
 
 export const Header = () => {
