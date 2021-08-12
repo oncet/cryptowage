@@ -4,7 +4,6 @@ import {
   ChakraProvider,
   Container,
   extendTheme,
-  // theme,
 } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
