@@ -6,7 +6,8 @@ import {
   extendTheme,
 } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import { Header } from "./components/Header";
 import { Home } from "./pages/Home";
@@ -30,12 +31,24 @@ const theme = extendTheme({
   },
 });
 
-export const App = () => (
-  <ChakraProvider theme={theme}>
-    <Router>
+export const App = () => {
+  const location = useLocation();
+
+  return (
+    <ChakraProvider theme={theme}>
       <Header />
       <Container maxW="container.lg" pt="4" pb="24">
-        <chakra.main mt="14">
+        <chakra.main
+          as={motion.main}
+          key={location.pathname}
+          mt="14"
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+        >
           <Switch>
             <Route exact path="/">
               <Home />
@@ -47,6 +60,6 @@ export const App = () => (
         </chakra.main>
       </Container>
       <Footer />
-    </Router>
-  </ChakraProvider>
-);
+    </ChakraProvider>
+  );
+};
