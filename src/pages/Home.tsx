@@ -4,6 +4,8 @@ import {
   Badge,
   Heading,
   Link,
+  LinkBox,
+  LinkOverlay,
   Stack,
   Stat,
   StatGroup,
@@ -41,13 +43,15 @@ export const Home = () => {
         Incoming payrolls
       </Heading>
       <Stack mt="4" spacing="4">
-        <Stat>
-          <StatLabel display="flex" justifyContent="space-between">
-            Sr. Pago <Badge colorScheme="yellow">processing</Badge>
-          </StatLabel>
-          <StatNumber>USD 3600</StatNumber>
-          <StatHelpText>Feb 28</StatHelpText>
-        </Stat>
+        <LinkBox as={Stat}>
+          <LinkOverlay as={RouterLink} to="/payrolls/1">
+            <StatLabel display="flex" justifyContent="space-between">
+              Sr. Pago <Badge colorScheme="yellow">processing</Badge>
+            </StatLabel>
+            <StatNumber>USD 3600</StatNumber>
+            <StatHelpText>Feb 28</StatHelpText>
+          </LinkOverlay>
+        </LinkBox>
         <Stat>
           <StatLabel display="flex" justifyContent="space-between">
             Sr. Pago <Badge>Pending</Badge>
