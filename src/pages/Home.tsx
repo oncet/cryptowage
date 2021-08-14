@@ -44,7 +44,7 @@ export const Home = () => {
       </Heading>
       <Stack mt="4" spacing="4">
         <LinkBox as={Stat}>
-          <LinkOverlay as={RouterLink} to="/payrolls/1">
+          <LinkOverlay as={RouterLink} to="/payroll/1">
             <StatLabel display="flex" justifyContent="space-between">
               Sr. Pago <Badge colorScheme="yellow">processing</Badge>
             </StatLabel>

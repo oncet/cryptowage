@@ -10,9 +10,10 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
 import { Contracts } from "./pages/Contracts";
-import { Footer } from "./components/Footer";
+import { Payroll } from "./pages/Payroll";
 
 const theme = extendTheme({
   components: {
@@ -52,6 +53,9 @@ export const App = () => {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route path="/payroll/:id">
+              <Payroll />
             </Route>
             <Route path="/contracts">
               <Contracts />
