@@ -1,24 +1,25 @@
 import React from "react";
 import {
   chakra,
-  Badge,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  Flex,
   Heading,
   Icon,
   List,
   ListIcon,
   ListItem,
   Text,
+  Link,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import {
-  FaBroadcastTower,
+  FaArrowLeft,
+  FaArrowRight,
   FaCalendarCheck,
-  FaCheck,
-  FaClock,
+  FaDollarSign,
+  FaExternalLinkAlt,
+  FaHashtag,
 } from "react-icons/fa";
 
 export const Payroll = () => {
@@ -61,9 +62,60 @@ export const Payroll = () => {
       </List>
       <Text mb="4">USD 10 fee for incoming wire.</Text>
       <chakra.hr mb="4" />
-      {/* <Heading as="h2" size="md">
-        Distribution
-      </Heading> */}
+      <Heading as="h2" size="lg" mb="2">
+        90% DAI
+      </Heading>
+      <List spacing="2" mb="4">
+        <ListItem display="flex" alignItems="center">
+          <ListIcon as={FaArrowRight} />
+          Input: USD 3231
+        </ListItem>
+        <ListItem display="flex" alignItems="center">
+          <ListIcon as={FaDollarSign} />
+          Fee: USD 69.62
+        </ListItem>
+        <ListItem display="flex" alignItems="center">
+          <ListIcon as={FaArrowLeft} />
+          Output: DAI 3161.38
+        </ListItem>
+        <ListItem display="flex" alignItems="center">
+          <ListIcon as={FaHashtag} />
+          <Text>
+            Transaction ID:{" "}
+            <Link isExternal href="#" display="inline-flex" alignItems="center">
+              0x139d...94f6
+              <Icon as={FaExternalLinkAlt} ml="2" color="gray.500" />
+            </Link>
+          </Text>
+        </ListItem>
+      </List>
+      <Heading as="h2" size="lg" mb="2">
+        10% USDC
+      </Heading>
+      <List spacing="2">
+        <ListItem display="flex" alignItems="center">
+          <ListIcon as={FaArrowRight} />
+          Input: USD 3231
+        </ListItem>
+        <ListItem display="flex" alignItems="center">
+          <ListIcon as={FaDollarSign} />
+          Fee: USD 69.62
+        </ListItem>
+        <ListItem display="flex" alignItems="center">
+          <ListIcon as={FaArrowLeft} />
+          Output: DAI 3161.38
+        </ListItem>
+        <ListItem display="flex" alignItems="center">
+          <ListIcon as={FaHashtag} />
+          <Text>
+            Transaction ID:{" "}
+            <Link isExternal href="#" display="inline-flex" alignItems="center">
+              0x139d...94f6
+              <Icon as={FaExternalLinkAlt} ml="2" color="gray.500" />
+            </Link>
+          </Text>
+        </ListItem>
+      </List>
     </>
   );
 };
