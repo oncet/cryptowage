@@ -21,6 +21,7 @@ export const HeaderLink: React.FC<HeaderLinkProps> = ({
       px={1}
       py={2}
       to={to}
+      variant="menu"
     >
       {children}
     </Link>
