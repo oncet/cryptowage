@@ -14,6 +14,9 @@ import {
   StatNumber,
   Text,
 } from "@chakra-ui/react";
+import { DaiIcon } from "../components/icons/DaiIcon";
+import { UsdcIcon } from "../components/icons/UsdcCoin";
+import { EthIcon } from "../components/icons/EthIcon";
 
 export const Home = () => {
   return (
@@ -25,12 +28,18 @@ export const Home = () => {
       <StatGroup as={Stack} direction="row" spacing="4" mt="4">
         <Stat>
           <StatLabel>95%</StatLabel>
-          <StatNumber>DAI</StatNumber>
+          <StatNumber display="flex" alignItems="center">
+            DAI
+            <DaiIcon boxSize="6" ml="2" />
+          </StatNumber>
           <StatHelpText>Stable coin</StatHelpText>
         </Stat>
         <Stat>
           <StatLabel>5%</StatLabel>
-          <StatNumber>ETH</StatNumber>
+          <StatNumber display="flex" alignItems="center">
+            ETH
+            <EthIcon boxSize="6" ml="2" />
+          </StatNumber>
           <StatHelpText>Cryptocurrency</StatHelpText>
         </Stat>
       </StatGroup>
