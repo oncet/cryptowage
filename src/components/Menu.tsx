@@ -83,16 +83,16 @@ export const Menu = ({ onClick }: HeaderProps) => {
         </ListItem>
       </List>
       <List borderTop="1px solid" borderColor={separatorColor}>
-        <ListItem
-          key="dark-mode"
-          display="flex"
-          alignItems="center"
-          px={1}
-          py={2}
-        >
-          <ListIcon as={FaMoon} />
+        <ListItem key="dark-mode" px={1} py={2}>
           <FormControl display="inline-flex" alignItems="center">
-            <FormLabel htmlFor="dark-mode" fontWeight="normal" mb="0">
+            <FormLabel
+              htmlFor="dark-mode"
+              fontWeight="normal"
+              display="flex"
+              alignItems="center"
+              mb="0"
+            >
+              <ListIcon as={FaMoon} mr="2" />
               Dark mode
             </FormLabel>
             <Switch
