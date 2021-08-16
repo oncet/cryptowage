@@ -87,7 +87,7 @@ export const Payroll = () => {
             Transaction ID:{" "}
             <Link isExternal href="#" display="inline-flex" alignItems="center">
               0x139d...94f6
-              <Icon as={FaExternalLinkAlt} ml="2" color="gray.500" />
+              <Icon as={FaExternalLinkAlt} ml="2" />
             </Link>
           </Text>
         </ListItem>
@@ -114,7 +114,7 @@ export const Payroll = () => {
             Transaction ID:{" "}
             <Link isExternal href="#" display="inline-flex" alignItems="center">
               0x139d...94f6
-              <Icon as={FaExternalLinkAlt} ml="2" color="gray.500" />
+              <Icon as={FaExternalLinkAlt} ml="2" />
             </Link>
           </Text>
         </ListItem>
