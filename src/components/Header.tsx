@@ -12,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 import { FaBars } from "react-icons/fa";
 
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { Menu } from "./Menu";
 import logo from "../logo.svg";
 

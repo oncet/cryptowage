@@ -15,7 +15,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { DaiIcon } from "../components/icons/DaiIcon";
-import { UsdcIcon } from "../components/icons/UsdcCoin";
 import { EthIcon } from "../components/icons/EthIcon";
 
 export const Home = () => {
