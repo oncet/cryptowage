@@ -29,6 +29,12 @@ const theme = extendTheme({
         },
       }),
     },
+    Link: {
+      baseStyle: (props) => ({
+        textDecoration: "underline",
+        color: mode("blue.600", "blue.300")(props),
+      }),
+    },
   },
 });
 
