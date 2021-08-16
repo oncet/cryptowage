@@ -50,7 +50,6 @@ export const Header = () => {
           <Link to="/" as={RouterLink} onClick={onClick}>
             <Image src={logo} alt="Logo" />
           </Link>
-          <ColorModeSwitcher />
           <IconButton
             size="md"
             fontSize="lg"

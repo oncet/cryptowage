@@ -1,9 +1,13 @@
 import React from "react";
 import {
   Box,
+  FormControl,
+  FormLabel,
   List,
   ListIcon,
   ListItem,
+  Switch,
+  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
 import {
@@ -14,6 +18,7 @@ import {
   FaQuestionCircle,
   FaMoneyBillWave,
   FaCog,
+  FaMoon,
 } from "react-icons/fa";
 
 import { HeaderLink } from "./HeaderLink";
@@ -23,9 +28,9 @@ type HeaderProps = {
 };
 
 export const Menu = ({ onClick }: HeaderProps) => {
+  const { toggleColorMode } = useColorMode();
+  const isDarkModeEnabled = useColorModeValue(false, true);
   const separatorColor = useColorModeValue("gray.300", "gray.700");
-
-  console.log("onClick", onClick);
 
   return (
     <Box pt={2}>
@@ -75,6 +80,29 @@ export const Menu = ({ onClick }: HeaderProps) => {
             <ListIcon as={FaQuestionCircle} />
             Help
           </HeaderLink>
+        </ListItem>
+      </List>
+      <List borderTop="1px solid" borderColor={separatorColor}>
+        <ListItem
+          key="dark-mode"
+          display="flex"
+          alignItems="center"
+          px={1}
+          py={2}
+        >
+          <ListIcon as={FaMoon} />
+          <FormControl display="inline-flex" alignItems="center">
+            <FormLabel htmlFor="dark-mode" fontWeight="normal" mb="0">
+              Dark mode
+            </FormLabel>
+            <Switch
+              id="dark-mode"
+              display="flex"
+              alignItems="center"
+              onChange={toggleColorMode}
+              isChecked={isDarkModeEnabled}
+            />
+          </FormControl>
         </ListItem>
       </List>
     </Box>
