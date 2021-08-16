@@ -7,8 +7,6 @@ export const theme = extendTheme({
       baseStyle: (props) => ({
         container: {
           background: mode("gray.100", "purple.900")(props),
-          border: "1px solid",
-          borderColor: mode("gray.300", "purple.600")(props),
           borderRadius: "md",
           px: "4",
           py: "2",
