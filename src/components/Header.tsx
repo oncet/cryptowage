@@ -7,39 +7,29 @@ import {
   IconButton,
   Image,
   Link,
-  List,
-  ListIcon,
-  ListItem,
   useColorModeValue,
   useOutsideClick,
 } from "@chakra-ui/react";
-import {
-  FaBars,
-  FaHome,
-  FaFileContract,
-  FaSitemap,
-  FaUserCircle,
-  FaQuestionCircle,
-  FaMoneyBillWave,
-  FaCog,
-} from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import { Menu } from "./Menu";
 import logo from "../logo.svg";
-import { HeaderLink } from "./HeaderLink";
 
 export const Header = () => {
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const background = useColorModeValue("gray.200", "gray.900");
-  const separatorColor = useColorModeValue("gray.300", "gray.700");
 
   useOutsideClick({
     ref,
     handler: () => setIsOpen(false),
   });
 
-  const onClick = () => setIsOpen(false);
+  const onClick = () => {
+    console.log("click!");
+    setIsOpen(false);
+  };
 
   return (
     <Box
@@ -72,56 +62,7 @@ export const Header = () => {
           />
         </chakra.header>
         <Collapse in={isOpen} animateOpacity>
-          <Box pt={2}>
-            <List>
-              <ListItem key="home">
-                <HeaderLink to="/" onClick={onClick}>
-                  <ListIcon as={FaHome} />
-                  Home
-                </HeaderLink>
-              </ListItem>
-              <ListItem key="profile">
-                <HeaderLink to="/profile" onClick={onClick}>
-                  <ListIcon as={FaUserCircle} />
-                  Profile
-                </HeaderLink>
-              </ListItem>
-              <ListItem key="settings">
-                <HeaderLink to="/settings" onClick={onClick}>
-                  <ListIcon as={FaCog} />
-                  Settings
-                </HeaderLink>
-              </ListItem>
-            </List>
-            <List borderTop="1px solid" borderColor={separatorColor}>
-              <ListItem key="payrolls">
-                <HeaderLink to="/payrolls" onClick={onClick}>
-                  <ListIcon as={FaMoneyBillWave} />
-                  Payrolls
-                </HeaderLink>
-              </ListItem>
-              <ListItem key="distributions">
-                <HeaderLink to="/distributions" onClick={onClick}>
-                  <ListIcon as={FaSitemap} />
-                  Distributions
-                </HeaderLink>
-              </ListItem>
-              <ListItem key="contracts">
-                <HeaderLink to="/contracts" onClick={onClick}>
-                  <ListIcon as={FaFileContract} />
-                  Contracts
-                </HeaderLink>
-              </ListItem>
-            </List>
-            <List borderTop="1px solid" borderColor={separatorColor}>
-              <ListItem key="help">
-                <HeaderLink to="/help" onClick={onClick}>
-                  <ListIcon as={FaQuestionCircle} />
-                  Help
-                </HeaderLink>
-              </ListItem>
-            </List>
-          </Box>
+          <Menu onClick={onClick} />
         </Collapse>
       </Box>
     </Box>
