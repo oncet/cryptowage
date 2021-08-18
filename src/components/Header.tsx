@@ -7,26 +7,23 @@ import {
   IconButton,
   Image,
   Link,
+  Portal,
   useColorModeValue,
-  useOutsideClick,
 } from "@chakra-ui/react";
 import { FaBars } from "react-icons/fa";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { Menu } from "./Menu";
 import logo from "../logo.svg";
+
+const AnimatedBox = motion(Box);
 
 export const Header = () => {
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const background = useColorModeValue("gray.200", "gray.900");
 
-  useOutsideClick({
-    ref,
-    handler: () => setIsOpen(false),
-  });
-
   const onClick = () => {
-    console.log("click!");
     setIsOpen(false);
   };
 
@@ -62,6 +59,27 @@ export const Header = () => {
         <Collapse in={isOpen} animateOpacity>
           <Menu onClick={onClick} />
         </Collapse>
+        <AnimatePresence>
+          {isOpen && (
+            <Portal>
+              <AnimatedBox
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.5 }}
+                transition={{
+                  duration: 0.1,
+                }}
+                exit={{ opacity: 0 }}
+                position="absolute"
+                top="0"
+                bottom="0"
+                left="0"
+                right="0"
+                background="black"
+                onClick={onClick}
+              />
+            </Portal>
+          )}
+        </AnimatePresence>
       </Box>
     </Box>
   );
