@@ -43,7 +43,7 @@ export const Header = () => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Link to="/" as={RouterLink} onClick={onClick}>
+          <Link to="/" as={RouterLink} onClick={onClick} borderRadius="xl">
             <Image src={logo} alt="Logo" />
           </Link>
           <IconButton
