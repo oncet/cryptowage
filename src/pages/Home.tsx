@@ -1,11 +1,8 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import {
-  Badge,
   Heading,
   Link,
-  LinkBox,
-  LinkOverlay,
   Stack,
   Stat,
   StatGroup,
@@ -14,6 +11,7 @@ import {
   StatNumber,
   Text,
 } from "@chakra-ui/react";
+
 import { DaiIcon } from "../components/icons/DaiIcon";
 import { EthIcon } from "../components/icons/EthIcon";
 
@@ -51,18 +49,32 @@ export const Home = () => {
         Incoming payrolls
       </Heading>
       <Stack mt="4" spacing="4">
-        <LinkBox as={Stat}>
-          <LinkOverlay as={RouterLink} to="/payroll/1">
-            <StatLabel display="flex" justifyContent="space-between">
-              Sr. Pago <Badge colorScheme="yellow">processing</Badge>
-            </StatLabel>
-            <StatNumber>USD 3600</StatNumber>
-            <StatHelpText>Feb 28</StatHelpText>
-          </LinkOverlay>
-        </LinkBox>
         <Stat>
           <StatLabel display="flex" justifyContent="space-between">
-            Sr. Pago <Badge>Pending</Badge>
+            Sr. Pago
+            <Link
+              as={RouterLink}
+              to="/payroll/1"
+              fontWeight="normal"
+              textDecoration="none"
+            >
+              View details
+            </Link>
+          </StatLabel>
+          <StatNumber>USD 3600</StatNumber>
+          <StatHelpText>Feb 28</StatHelpText>
+        </Stat>
+        <Stat>
+          <StatLabel display="flex" justifyContent="space-between">
+            Sr. Pago
+            <Link
+              as={RouterLink}
+              to="/payroll/1"
+              fontWeight="normal"
+              textDecoration="none"
+            >
+              View details
+            </Link>
           </StatLabel>
           <StatNumber>USD 3600</StatNumber>
           <StatHelpText>Feb 28</StatHelpText>
@@ -79,14 +91,30 @@ export const Home = () => {
       <Stack mt="4" spacing="4">
         <Stat>
           <StatLabel display="flex" justifyContent="space-between">
-            Sr. Pago <Badge colorScheme="green">processed</Badge>
+            Sr. Pago
+            <Link
+              as={RouterLink}
+              to="/payroll/1"
+              fontWeight="normal"
+              textDecoration="none"
+            >
+              View details
+            </Link>
           </StatLabel>
           <StatNumber>USD 3600</StatNumber>
           <StatHelpText>Processed on Feb 28</StatHelpText>
         </Stat>
         <Stat>
           <StatLabel display="flex" justifyContent="space-between">
-            Sr. Pago <Badge colorScheme="green">processed</Badge>
+            Sr. Pago
+            <Link
+              as={RouterLink}
+              to="/payroll/1"
+              fontWeight="normal"
+              textDecoration="none"
+            >
+              View details
+            </Link>
           </StatLabel>
           <StatNumber>USD 3600</StatNumber>
           <StatHelpText>Processed on Feb 28</StatHelpText>
